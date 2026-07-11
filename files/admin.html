@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECDIS ORACLE - M.CT. | Admin</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="topbar">
+    <span>ECDIS ORACLE — <b>M.CT.</b></span>
+    <span>ADMIN PANEL</span>
+  </div>
+
+  <!-- LOGIN -->
+  <section id="view-login" class="card">
+    <div class="admin-login-box">
+      <p class="hero-sub">Restricted Area</p>
+      <h1 class="hero-title" style="font-size:26px;">Administrator Login</h1>
+      <div class="field" id="field-password" style="text-align:left; margin-top:24px;">
+        <label for="input-password">Password</label>
+        <input type="text" id="input-password" placeholder="Enter admin password" autocomplete="off">
+        <div class="error-msg">Incorrect password.</div>
+      </div>
+      <button id="btn-login" class="btn btn-primary" style="width:100%;">Unlock Dashboard</button>
+      <p style="margin-top:20px;"><a class="small-link" href="index.html">← Back to test landing page</a></p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="view-dashboard" class="card hidden">
+    <p class="hero-sub">Attempt Records</p>
+    <h1 class="hero-title" style="font-size:26px;">All Test Attempts</h1>
+
+    <div class="stat-row" id="stat-row"></div>
+
+    <div class="btn-row" style="margin: 20px 0;">
+      <button id="btn-export" class="btn btn-primary">⬇ Export CSV</button>
+      <button id="btn-clear" class="btn btn-secondary">Clear All Records</button>
+      <button id="btn-logout" class="btn btn-secondary">Log Out</button>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="admin-table">
+        <thead>
+          <tr>
+            <th>#</th><th>HKID</th><th>Full Name</th><th>Rank</th>
+            <th>Score</th><th>Result</th><th>Time Taken</th>
+            <th>Auto-Submit</th><th>Completed (Local)</th>
+          </tr>
+        </thead>
+        <tbody id="admin-tbody"></tbody>
+      </table>
+    </div>
+
+    <p class="footer-note">
+      Records shown are stored in this browser's local storage. See README.md for how to
+      centralize records across multiple devices using a free Google Sheets webhook.
+    </p>
+  </section>
+
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>

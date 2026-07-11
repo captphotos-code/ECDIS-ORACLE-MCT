@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>ECDIS ORACLE - M.CT.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="topbar">
+    <span>ECDIS ORACLE — <b>M.CT.</b></span>
+    <span>MANDATORY COMPUTER-BASED TEST</span>
+  </div>
+
+  <!-- ================= LANDING ================= -->
+  <section id="view-landing" class="card">
+    <p class="hero-sub">Electronic Chart Display &amp; Information System</p>
+    <h1 class="hero-title">ECDIS ORACLE <span class="accent">- M.CT.</span></h1>
+
+    <div class="brief-grid">
+      <div class="brief-item"><span class="num">50</span><span class="label">Questions per test</span></div>
+      <div class="brief-item"><span class="num">40</span><span class="label">Minutes maximum</span></div>
+      <div class="brief-item"><span class="num">40/50</span><span class="label">Correct to pass</span></div>
+    </div>
+
+    <ul class="notice-list">
+      <li>Each attempt draws <b>50 questions at random</b> from the full question bank, balanced across difficulty (Easy / Medium / Hard) and across topic areas — no two attempts are the same.</li>
+      <li>You have a maximum of <b>40 minutes</b> to complete all 50 questions. A countdown timer is visible throughout the test.</li>
+      <li>A minimum of <b>40 correctly answered questions</b> is required to pass.</li>
+      <li class="warn"><b>Some questions may have more than one correct answer.</b> Where more than one answer is required, checkboxes will be shown instead of a single-choice list — select all that apply.</li>
+      <li>If the test is not submitted manually, it will <b>auto-submit automatically</b> once 40 minutes have elapsed from Question 1.</li>
+      <li>On completion, your result is shown on screen and a <b>PDF report is generated and downloaded</b> automatically.</li>
+    </ul>
+
+    <button id="btn-register" class="btn btn-primary">Register &amp; Begin →</button>
+
+    <div class="footer-note">
+      Administrator? <a class="small-link" href="admin.html">Open Admin Panel</a>
+    </div>
+  </section>
+
+  <!-- ================= REGISTER ================= -->
+  <section id="view-register" class="card hidden">
+    <p class="hero-sub">Candidate Registration</p>
+    <h1 class="hero-title" style="font-size:28px;">Confirm Your Details</h1>
+    <p style="color:var(--ink-dim); margin-bottom:28px; font-size:14.5px;">
+      These details will appear on your result report. Please double-check accuracy before proceeding — this cannot be edited after the test begins.
+    </p>
+
+    <form id="form-register">
+      <div class="field" id="field-hkid">
+        <label for="input-hkid">HKID Number</label>
+        <input type="tel" id="input-hkid" inputmode="numeric" pattern="[0-9]*" placeholder="e.g. 1234567" autocomplete="off">
+        <div class="hint">Numbers only.</div>
+        <div class="error-msg">Please enter a valid HKID (numbers only, at least 4 digits).</div>
+      </div>
+
+      <div class="field" id="field-fullname">
+        <label for="input-fullname">Full Name</label>
+        <input type="text" id="input-fullname" placeholder="As per seaman's book / passport" autocomplete="off">
+        <div class="error-msg">Please enter your full name.</div>
+      </div>
+
+      <div class="field" id="field-rank">
+        <label for="input-rank">Rank</label>
+        <select id="input-rank">
+          <option value="">— Select Rank —</option>
+        </select>
+        <div class="error-msg">Please select your rank.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Start Test — 40:00 begins now →</button>
+    </form>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="view-quiz" class="card hidden">
+    <div class="quiz-header">
+      <span class="qcounter" id="q-counter">QUESTION 1 / 50</span>
+      <span class="timer" id="timer"><span class="dot"></span> 40:00</span>
+    </div>
+
+    <div class="route-track" id="route-track"></div>
+
+    <span class="topic-tag" id="q-topic-row">
+      <span id="q-topic">Topic</span>
+      <span class="diff-badge" id="q-diff">Medium</span>
+    </span>
+
+    <p class="question-text" id="q-text">Question text goes here</p>
+    <span class="multi-flag hidden" id="q-multi-flag">⚠ This question may have more than one correct answer — select all that apply.</span>
+
+    <div class="options" id="q-options"></div>
+
+    <div class="nav-buttons">
+      <button id="btn-back" class="btn btn-secondary">← Back</button>
+      <div class="btn-row">
+        <button id="btn-next" class="btn btn-primary">Next →</button>
+        <button id="btn-submit" class="btn btn-primary hidden">Submit Test ✓</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section id="view-results" class="card hidden">
+    <div class="result-hero">
+      <div id="result-badge" class="result-badge pass">PASS</div>
+      <div class="score-big" id="result-score">0<span>/50</span></div>
+      <p id="result-autosubmit" class="hidden" style="color:var(--amber); font-family:var(--mono); font-size:13px; margin-top:10px;">
+        ⏱ Time expired — this test was submitted automatically.
+      </p>
+    </div>
+
+    <div class="result-grid" id="result-details"></div>
+
+    <p style="color:var(--ink-dim); font-size:13.5px; text-align:center;">
+      A PDF copy of this result has been downloaded to your device automatically.
+    </p>
+
+    <div class="footer-note">
+      ECDIS ORACLE - M.CT. — this window can now be closed.
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
